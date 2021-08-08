@@ -1,0 +1,11 @@
+{
+    "NbrPlayer": 2,
+    "Rank1": {
+        "Name": "Player1",
+        "BomberColor": 0
+    },
+    "Rank2": {
+        "Name": "AI2",
+        "BomberColor": 1
+    }
+}

@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+Yellow='\033[0;33m'
+Cyan='\033[0;36m'
+Red='\033[0;31m'
+NC='\033[0;m'
+
+REAL_FILE=real_ftrace_out
+MY_FILE=my_ftrace_out
+OUTFILE=out
+
+BIN_DIR_PATH='./tests/bin/'
+CRASH_BIN_NAME='.crash'
+FORK_BIN_NAME='.fork'
+DEFAULT_BIN_NAME='.default'
+
+CRASH_BIN_PATH="${BIN_DIR_PATH}${CRASH_BIN_NAME}"
+DEFAULT_BIN_PATH="${BIN_DIR_PATH}${DEFAULT_BIN_NAME}"
+FORK_BIN_PATH="${BIN_DIR_PATH}${FORK_BIN_NAME}"
+
+
+# testing if ftrace is installed (useful for github actions)
+strace -h 2>&1 >/dev/null || { echo "installing ftrace:" && sudo apt-get install -y strace ; }
+
+exec_command () {
+    printf "Executing ${Cyan}%s${NC} with needle "${Cyan}"%s"${NC}": " "${1}" "${2}"
+
+    ./ftrace -o "${OUTFILE}" "${1}" 2>&1 >/dev/null
+    MINE=$(grep -a "${2}" "${OUTFILE}" 2>&1 | head -n 1 | xargs)
+    REAL=$(strace -e raw="${2}" "${1}" 2>&1 >/dev/null | grep -a "${2}" 2>&1 | head -n 1 | xargs)
+
+    rm "${OUTFILE}"
+    if [[ "${MINE}" != "Syscall "${REAL}"" ]];
+    then
+        printf "\n${Red}%s${NC}\n\n" "$( diff -c <( echo "Syscall ${REAL}" ) <( echo "${MINE}" ) | cat -e)"
+        cleanup && exit 1
+    else printf "${Yellow}Success!${NC}\n"
+    fi
+}
+
+test_outfile () {
+    printf "Testing if ${Cyan}./my_ftrace -o ${OUTFILE}${NC} works with ${Cyan}${1}${NC}: "
+    ./ftrace -o "${OUTFILE}" "${1}" 2>&1 > /dev/null || { echo "error while ftrace was called" && cleanup && exit 1 ; }
+
+    if [ $(cat "${OUTFILE}" | wc -l) != 0 ]; then
+        printf "${Yellow}Success!${NC}\n" && rm "${OUTFILE}"
+    else
+        rm "${OUTFILE}" && printf "${Red}%s\n" "${FIRST_LINE}" && cleanup && exit 1 ;
+    fi
+}
+
+check_core_dump () {
+    TARGET="SIGSEGV"
+
+    printf "Checking if ${Cyan}core_dumps${NC} are properly handled:"
+    ./ftrace -o "${OUTFILE}" "${CRASH_BIN_PATH}" || { \
+        printf "${Red}Error: Should have returned 0.\n" && \
+        rm "${OUTFILE}" && exit 1 ; }
+
+    grep -q "${TARGET}" "${OUTFILE}" || { \
+        printf "${Red}Error: should have caught "${TARGET}"\n" && exit 1 ; }
+            rm "${OUTFILE}"
+            printf "${Yellow} Success!${NC}\n"
+}
+
+cleanup () { make fclean >/dev/null ; }
+
+setup () { make re > /dev/null ; }
+
+
+#######################
+##### TEST SCRIPT #####
+#######################
+
+# TODO static functions
+# TODO 32bits binary
+# TODO follow fork
+
+setup
+
+printf ""${Yellow}"If an error occurs, expected output is shown first.\n\n"${NC}""
+exec_command "${DEFAULT_BIN_PATH}" "close"
+check_core_dump
+test_outfile "${DEFAULT_BIN_PATH}"
+
+cleanup

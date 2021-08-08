@@ -1,0 +1,23 @@
+{
+    "NbrPlayer": 2,
+    "Player_1": {
+        "nbr": 1,
+        "type": 0,
+        "skin": "Player"
+    },
+    "Player_2": {
+        "nbr": 2,
+        "type": 1,
+        "skin": "PlayerBlue"
+    },
+    "Player_3": {
+        "nbr": 3,
+        "type": 2,
+        "skin": "PlayerGreen"
+    },
+    "Player_4": {
+        "nbr": 4,
+        "type": 2,
+        "skin": "PlayerRed"
+    }
+}

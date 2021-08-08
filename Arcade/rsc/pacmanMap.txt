@@ -1,0 +1,25 @@
+XXXXXXXXXXXXXXXXXXXXXXX|
+XooooooooooXooooooooooX|
+XPXXXoXXXXoXoXXXXoXXXPX|
+XoXXXoXXXXoXoXXXXoXXXoX|
+XoooooooooooooooooooooX|
+XoXXXoXoXXXXXXXoXoXXXoX|
+XoooooXooooXooooXoooooX|
+XXXXXoXXXX X XXXXoXXXXX|
+    XoX         XoX    |
+    XoX XXX-XXX XoX    |
+    XoX X     X XoX    |
+XXXXXoX X     X XoXXXXX|
+    xo  X     X  ox    |
+XXXXXoX X     X XoXXXXX|
+    XoX XXXXXXX XoX    |
+    XoX         XoX    |
+XXXXXoX XXXXXXX XoXXXXX|
+XooooooooooXooooooooooX|
+XoXXXoXXXXoXoXXXXoXXXoX|
+XoooXoooooooooooooXoooX|
+XXXoXoXoXXXXXXXoXoXoXXX|
+XoooooXooooXooooXoooooX|
+XPXXXXXXXXoXoXXXXXXXXPX|
+XoooooooooooooooooooooX|
+XXXXXXXXXXXXXXXXXXXXXXX|

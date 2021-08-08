@@ -1,0 +1,46 @@
+{
+    "SceneName": {
+        "Entities": [
+            "",
+            "",
+            ""
+        ],
+        "Factories": [
+            {
+                "Name": "transformFact",
+                "Type": "transform",
+                "Components": [
+                    {
+                        "Type": "transform",
+                        "Entity": "",
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotation": {
+                            "angle": 0,
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }
+                ]
+            },
+            {
+                "Name": "meshFact",
+                "Type": "mesh",
+                "Components": [
+                    {
+                       "Type": "mesh" 
+                    }
+                ]
+            } 
+        ]
+    }  
+}

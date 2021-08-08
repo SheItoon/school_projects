@@ -1,0 +1,6 @@
+username:xX_DarkVadore_du_69_Xx
+pacman:900
+nibbler:500
+quix:0
+centipede:0
+solarfox:0
