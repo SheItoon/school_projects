@@ -1,0 +1,10 @@
+const char *secret[] = {
+    "https://cdn.discordapp.com/attachments/674237819782168577/705515149733396601/froge_game.gif",
+    "https://cdn.discordapp.com/attachments/566722585287720960/705509115589296169/froge_bite.gif",
+    "https://tenor.com/view/pet-froge-froge-mmm-yes-mmmm-myes-pet-froge-petting-gif-16361095",
+    "https://tenor.com/view/mmmm-myes-handshake-froge-cute-gif-16743451",
+    "https://tenor.com/view/mmmmm-myes-twerk-froge-frog-toad-twerk-dance-gif-16778671",
+    "https://tenor.com/view/wash-froge-froge-mmm-yes-mmmm-gif-16683495",
+    "https://giphy.com/gifs/mmm-myes-froge-faux-fauch-YOLtOXZLC86W42qAQz",
+    "https://tenor.com/view/mmmm-myes-wash-froge-cute-funny-fieryrage-idke-gif-16770678"
+};

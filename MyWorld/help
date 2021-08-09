@@ -1,0 +1,27 @@
+==============================Information=======================================
+ Description:
+    The goal of the game is to construct your world as you want.
+    You have several tools at your disposal.
+    You can save several map and load them form the menu.
+ Key:
+    -page_up zoom +
+    -page_down zoom -
+    -scroll_mouse to zoom
+    -r reset the map
+    -directional arrow move the camera
+    -i increase size of the map
+    -k decrease size of the map
+
+One little riddle to have more fun:
+    I am green, and i live with the feet in the mud.
+    My friends are a cat and donkey.
+    My passion is to scare for fun
+    My song is very popular.
+    and i live very well in my trunk.
+    I fell in love with a special princess.
+    With her we have tree little devil.
+    Who i am?
+    Now write my name somewhere and enjoy.
+Technical information:
+    This game use multi-threading.
+================================================================================
